@@ -25,7 +25,7 @@ function fail(erro){
 }
 function keepOn(){
     const name = {name: ask};
-    const promess = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/status", name);
+    axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/status", name);
 }
 
 
@@ -53,7 +53,21 @@ function showMessage(response){
                 <p><span class='time'>(${response.data[i].time})</span> <span class='users'>${response.data[i].from}</span> para <span class='users'>${response.data[i].to}</span>: ${response.data[i].text}</p>
             </div>`;
         }
+        document.body.scrollTop = document.body.scrollHeight;
+        document.documentElement.scrollTop = document.documentElement.scrollHeight;
     }
-    console.log(eachMessage);
+    // console.log(eachMessage);
 }
 setInterval(getMessage, 3000);
+
+function sendMessage(){
+    const getInputMessage = document.querySelector(".bbb");
+    const message = {
+        from: ask,
+        to: "Todos",
+        text: getInputMessage.value,
+        type: "message" // ou "private_message" para o bônus
+    }
+    axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages", message);
+    getInputMessage.value = "";
+}
