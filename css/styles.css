@@ -1,0 +1,120 @@
+/* font-family: 'Roboto', sans-serif; */
+.top{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+.top ion-icon{
+    font-size: 50px;
+    margin-right: 22px;
+}
+.logo{
+    width: 75px;
+    height: 53px;
+    margin-left: 22px;
+}
+
+
+
+.chat{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    margin-top: 105px;
+    background-color: #E5E5E5;
+}
+.message{
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    width: 100%;
+    min-height: 40px;
+    padding: 0 8px;
+    margin-bottom: 4px;
+    overflow-wrap: break-word;
+    background-color: #fff;
+    border-radius: 2px;
+    /* faltando border */
+}
+.private-message{
+    background-color: #FFDEDE;
+}
+.enter-leave{
+   background-color: #DCDCDC; 
+}
+
+
+
+
+
+.menu{
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: red;
+    opacity: 0.5;
+}
+.side-menu{
+    display: flex;
+    width: 35%;
+    height: 100%;
+    background-color: aqua;
+}
+.hidden{
+    display: none;
+}
+
+
+.type-menu{
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.type-menu ion-icon{
+    margin-right: 18px;
+    font-size: 34px;
+}
+.type-menu input{
+    margin-left: 22px;
+    border:none;
+    outline: none;
+    width: 80%;
+    height: 30px;
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-style: normal;
+}
+.type-menu input::-webkit-input-placeholder{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    color: #000;
+}
+.type-menu input:-moz-placeholder{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    color: #000;
+}
+.type-menu input::-moz-placeholder{
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    color: #000;
+}
