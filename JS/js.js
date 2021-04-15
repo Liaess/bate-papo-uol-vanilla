@@ -1,29 +1,34 @@
-
-let pergunta;
+let ask;
 const eachMessage = document.querySelector(".chat")
 
+askName()
+enterRoom(ask)
+
 function askName(){
-
+    ask = prompt("Qual seu nome?");
 }
-
-enterRoom()
-function enterRoom(){
-    pergunta = prompt("Qual seu nome?");
-    const name = {name: pergunta};
-    console.log(name);
+function enterRoom(ask){
+    const name = {name: ask};
     const promess = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/participants", name);
     promess.then(sucess)
     promess.catch(fail)
-
-    function sucess(){
-        getMessage()
-    }
-    function fail(erro){
-        if(erro.response.status === 400){
-            enterRoom()
-        }
+}
+function sucess(){
+    getMessage();
+    setInterval(keepOn, 5000);
+}
+function fail(erro){
+    if(erro.response.status === 400){
+        alert("Nome indisponivel, por favor digite um novo nome")
+        askName()
     }
 }
+function keepOn(){
+    const name = {name: ask};
+    const promess = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/status", name);
+}
+
+
 function getMessage(){
     const promess = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages");
     promess.then(showMessage);
