@@ -45,14 +45,17 @@
     border-radius: 2px;
     /* faltando border */
 }
+.message:last-child{
+    margin-bottom: 84px;
+}
 .message p{
     font-family: 'Roboto';
 }
-.clock{
-    color:yellow;
+.time{
+    color: #AAA;
+    margin-right: 6px;
 }
-.message span{
-    font-family: 'Roboto';
+.users{
     font-weight: 700;
 }
 .private-message{
