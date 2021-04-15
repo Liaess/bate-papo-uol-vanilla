@@ -29,7 +29,7 @@
     flex-direction: column;
     height: auto;
     width: 100%;
-    margin-top: 105px;
+    margin-top: 80px;
     background-color: #E5E5E5;
 }
 .message{
@@ -40,7 +40,7 @@
     min-height: 40px;
     padding: 0 8px;
     margin-bottom: 4px;
-    overflow-wrap: break-word;
+    word-break: break-all;
     background-color: #fff;
     border-radius: 2px;
     /* faltando border */
