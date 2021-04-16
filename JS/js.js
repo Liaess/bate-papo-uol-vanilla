@@ -69,14 +69,9 @@ function showMessage(response){
                 <p><span class='time'>(${response.data[i].time})</span> <span class='users'>${response.data[i].from}</span> para <span class='users'>${response.data[i].to}</span>: ${response.data[i].text}</p>
             </div>`;
         }
-
-        const newMessages = document.querySelector('.chat div:last-child');
-        newMessages.scrollIntoView();
-
-        // document.body.scrollTop = document.body.scrollHeight;
-        // document.documentElement.scrollTop = document.documentElement.scrollHeight;
     }
-    // console.log(eachMessage);
+    const newMessages = document.querySelector('.chat div:last-child');
+    newMessages.scrollIntoView();
 }
 setInterval(getMessage, 3000);
 
@@ -93,3 +88,18 @@ function sendMessage(){
     getMessage();
     promess.catch(actionFail);
 }
+
+const sendMessageEnter = document.querySelector(".type-menu .input")
+sendMessageEnter.addEventListener("keyup", function(event) {
+    console.log(event.key);
+    if(event.key==="Enter"){
+        sendMessage();
+    }
+});
+const enterWithKeyEnter = document.querySelector(".menu .middle-menu .input");
+enterWithKeyEnter.addEventListener("keyup", function(event) {
+    console.log(event.key);
+    if(event.key==="Enter"){
+        enterChat();
+    }
+});

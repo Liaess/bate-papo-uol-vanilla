@@ -47,7 +47,6 @@
     word-break: break-all;
     background-color: #fff;
     border-radius: 2px;
-    /* faltando border */
 }
 .message:last-child{
     margin-bottom: 84px;
