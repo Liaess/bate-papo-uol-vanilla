@@ -11,22 +11,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="top">
-        <img class="logo" src="Images/logo.png" alt="">
-        <ion-icon name="people-sharp"></ion-icon>
-    </div>
-    <div class="chat">
-        
-    </div>
+    <div class="content hidden">
+        <div class="top">
+            <img class="logo" src="Images/logo.png" alt="">
+            <ion-icon name="people-sharp"></ion-icon>
+        </div>
+        <div class="chat">
+            
+        </div>
 
-    <div class="type-menu">
-        <input class="input" type="text" placeholder="Escreva aqui...">
-        <ion-icon name="paper-plane-outline" onclick="sendMessage(this)" ></ion-icon>
+        <div class="type-menu">
+            <input class="input" type="text" placeholder="Escreva aqui...">
+            <ion-icon name="paper-plane-outline" onclick="sendMessage(this)" ></ion-icon>
+        </div>
     </div>
     
-    <div class="menu hidden">
-        <div class="side-menu">
-            a
+    <div class="menu">
+        <img class="logo-menu" src="Images/logo2.png    " alt="">
+        <div class="middle-menu">
+            <input class="input" type="text" placeholder="Digite seu nome">
+            <button class="format-button" onclick="enterChat(this)">Entrar</button>
         </div>
     </div>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>

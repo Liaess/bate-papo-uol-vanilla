@@ -1,4 +1,8 @@
 /* font-family: 'Roboto', sans-serif; */
+
+*{
+	box-sizing: border-box;
+}
 .top{
     position: fixed;
     display: flex;
@@ -49,7 +53,7 @@
     margin-bottom: 84px;
 }
 .message p{
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
 }
 .time{
     color: #AAA;
@@ -70,18 +74,70 @@
 
 
 .menu{
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background-color: red;
-    opacity: 0.5;
-}
-.side-menu{
+    width: 100vw;
+    height: 100vh;   
+    background-color: #fff;
     display: flex;
-    width: 35%;
-    height: 100%;
-    background-color: aqua;
+    flex-direction: column;
+    align-items: center;
 }
+.logo-menu{
+    width: 130px;
+    margin-top: 72px;
+}
+.middle-menu{
+    display: flex;
+    flex-direction: column;
+    margin-top: 94px;
+}
+.format-button{
+    width: 109px;
+    height: 45px;
+    background-color: #e7e7e7;
+    border-radius: 9px;
+    border:none;
+    font-family: 'Roboto', sans-serif;
+    color: #696969;
+    outline: none;
+    margin: 15px auto 0px auto;
+}
+.middle-menu input{
+    width: 261px;
+    height: 54px;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #d7d7d7;
+}
+.middle-menu input::-webkit-input-placeholder{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #AEAEAE;
+    text-align: center;
+    line-height: 25px;
+}
+.type-menu input:-moz-placeholder{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #AEAEAE;
+    text-align: center;
+    line-height: 25px;
+}
+.type-menu input::-moz-placeholder{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #AEAEAE;
+    text-align: center;
+    line-height: 25px;
+}
+
+
+
+
+
 .hidden{
     display: none;
 }
@@ -110,26 +166,26 @@
     outline: none;
     width: 80%;
     height: 30px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-style: normal;
 }
 .type-menu input::-webkit-input-placeholder{
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-style: italic;
     font-size: 18px;
     color: #000;
 }
 .type-menu input:-moz-placeholder{
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-style: italic;
     font-size: 18px;
     color: #000;
 }
 .type-menu input::-moz-placeholder{
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-style: italic;
     font-size: 18px;

@@ -1,25 +1,23 @@
 let ask;
 const eachMessage = document.querySelector(".chat")
 
-start()
-
-function start(){
-    askName();
-    enterRoom();
-}
-
-function askName(){
-    ask = prompt("Qual seu nome?");
-}
-
-function enterRoom(){
+function enterChat(){
+    const loading = document.querySelector(".menu .middle-menu");
+    const getUserName = document.querySelector(".menu .middle-menu .input");
+    ask = getUserName.value
     const name = {name: ask};
+    loading.innerHTML = `<img src="Images/Magnify-1s-200px.gif">`;
     const promess = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/participants", name);
-    promess.then(sucess)
-    promess.catch(fail)
+    // promess.then(sucess);
+    promess.then(sucess);
+    promess.catch(fail);
 }
 
 function sucess(){
+    const hidemenu = document.querySelector(".menu");
+    hidemenu.classList.add("hidden");
+    const showChat = document.querySelector(".content");
+    showChat.classList.remove("hidden");
     getMessage();
     setInterval(keepOn, 5000);
 }
@@ -27,7 +25,11 @@ function sucess(){
 function fail(erro){
     if(erro.response.status === 400){
         alert("Nome indisponivel, por favor digite um novo nome");
-        start();
+        const loading = document.querySelector(".menu .middle-menu");
+        loading.innerHTML = `
+            <input class="input" type="text" placeholder="Digite seu nome">
+            <button class="format-button" onclick="enterChat(this)">Entrar</button>
+        `;
     }
 }
 
@@ -68,7 +70,7 @@ function showMessage(response){
             </div>`;
         }
 
-        const newMessages = document.querySelector('.chat .message:last-child');
+        const newMessages = document.querySelector('.chat div:last-child');
         newMessages.scrollIntoView();
 
         // document.body.scrollTop = document.body.scrollHeight;
@@ -79,7 +81,7 @@ function showMessage(response){
 setInterval(getMessage, 3000);
 
 function sendMessage(){
-    const getInputMessage = document.querySelector(".input");
+    const getInputMessage = document.querySelector(".type-menu .input");
     const message = {
         from: ask,
         to: "Todos",
