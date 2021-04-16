@@ -60,7 +60,7 @@ function showParticipants(response){
     for(let i =0; i<response.data.length; i++){
         eachParticipants.innerHTML += `
         <div class="participants" onclick="choosePerson(this)">
-            <div class="aaa">
+            <div class="each-person">
                 <ion-icon name="person-circle"></ion-icon>
                 <p>${response.data[i].name} </p>
             </div>
@@ -77,6 +77,7 @@ function choosePerson(click){
     }
     click.children[1].classList.add("changeopacity");
 }
+//Faltou tempo para continuar :(
 
 function sidebarParticipants(){
     const showBlackScreen = document.querySelector(".blackscreen");
