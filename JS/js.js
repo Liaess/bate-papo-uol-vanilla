@@ -1,6 +1,6 @@
 let ask;
-const eachMessage = document.querySelector(".chat")
-
+const eachMessage = document.querySelector(".chat");
+const eachParticipants = document.querySelector(".all-participants");
 function enterChat(){
     const loading = document.querySelector(".menu .middle-menu");
     const getUserName = document.querySelector(".menu .middle-menu .input");
@@ -11,17 +11,17 @@ function enterChat(){
     // promess.then(sucess);
     promess.then(sucess);
     promess.catch(fail);
-}
 
+}
 function sucess(){
     const hidemenu = document.querySelector(".menu");
     hidemenu.classList.add("hidden");
     const showChat = document.querySelector(".content");
     showChat.classList.remove("hidden");
     getMessage();
+    getParticipants();
     setInterval(keepOn, 5000);
 }
-
 function fail(erro){
     if(erro.response.status === 400){
         alert("Nome indisponivel, por favor digite um novo nome");
@@ -47,6 +47,49 @@ function actionFail(){
 function getMessage(){
     const promess = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages");
     promess.then(showMessage);
+
+}
+function getParticipants(){
+    const anotherpromess = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/participants");
+    anotherpromess.then(showParticipants);
+}
+
+function showParticipants(response){
+    // console.log(eachParticipants)
+    eachParticipants.innerHTML = "";
+    for(let i =0; i<response.data.length; i++){
+        eachParticipants.innerHTML += `
+        <div class="participants" onclick="choosePerson(this)">
+            <div class="aaa">
+                <ion-icon name="person-circle"></ion-icon>
+                <p>${response.data[i].name} </p>
+            </div>
+            <ion-icon name="checkmark-outline"></ion-icon>
+        </div>`
+    }
+}
+
+function choosePerson(click){
+    const checkAllParticipants = document.querySelector(".all-participants");
+    const checkOpacity = checkAllParticipants.querySelector(".changeopacity");
+    if(checkOpacity !== null){
+        checkOpacity.classList.remove("changeopacity");
+    }
+    click.children[1].classList.add("changeopacity");
+}
+
+function sidebarParticipants(){
+    const showBlackScreen = document.querySelector(".blackscreen");
+    showBlackScreen.classList.remove("hidden");
+    const showSideScreen = document.querySelector(".sidebar");
+    showSideScreen.classList.remove("hidden");
+}
+
+function cancelSideBar(){
+    const showBlackScreen = document.querySelector(".blackscreen");
+    showBlackScreen.classList.add("hidden");
+    const showSideScreen = document.querySelector(".sidebar");
+    showSideScreen.classList.add("hidden");
 }
 
 function showMessage(response){
@@ -74,6 +117,7 @@ function showMessage(response){
     newMessages.scrollIntoView();
 }
 setInterval(getMessage, 3000);
+setInterval(getParticipants, 10000);
 
 function sendMessage(){
     const getInputMessage = document.querySelector(".type-menu .input");
@@ -91,14 +135,14 @@ function sendMessage(){
 
 const sendMessageEnter = document.querySelector(".type-menu .input")
 sendMessageEnter.addEventListener("keyup", function(event) {
-    console.log(event.key);
+    // console.log(event.key);
     if(event.key==="Enter"){
         sendMessage();
     }
 });
 const enterWithKeyEnter = document.querySelector(".menu .middle-menu .input");
 enterWithKeyEnter.addEventListener("keyup", function(event) {
-    console.log(event.key);
+    // console.log(event.key);
     if(event.key==="Enter"){
         enterChat();
     }

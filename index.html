@@ -14,7 +14,7 @@
     <div class="content hidden">
         <div class="top">
             <img class="logo" src="Images/logo.png" alt="">
-            <ion-icon name="people-sharp"></ion-icon>
+            <ion-icon onclick="sidebarParticipants(this)" name="people-sharp"></ion-icon>
         </div>
         <div class="chat">
             
@@ -27,10 +27,23 @@
     </div>
 
     <div class="menu">
-        <img class="logo-menu" src="Images/logo2.png    " alt="">
+        <img class="logo-menu" src="Images/logo2.png" alt="">
         <div class="middle-menu">
             <input class="input" type="text" placeholder="Digite seu nome">
             <button class="format-button" onclick="enterChat(this)">Entrar</button>
+        </div>
+    </div>
+
+    <div class="blackscreen hidden" onclick="cancelSideBar(this)"></div>
+    <div class="sidebar hidden">
+        <div class="sidebar-tittle">
+            <h1>Escolha um contato <br>para enviar mensagem:</h1>
+            <div class="everyone">
+                <ion-icon name="people"></ion-icon>
+                <p>Todos</p>
+            </div>
+            <div class="all-participants">
+            </div>
         </div>
     </div>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
