@@ -67,6 +67,10 @@ function showMessage(response){
                 <p><span class='time'>(${response.data[i].time})</span> <span class='users'>${response.data[i].from}</span> para <span class='users'>${response.data[i].to}</span>: ${response.data[i].text}</p>
             </div>`;
         }
+
+        const newMessages = document.querySelector('.chat .message:last-child');
+        newMessages.scrollIntoView();
+
         // document.body.scrollTop = document.body.scrollHeight;
         // document.documentElement.scrollTop = document.documentElement.scrollHeight;
     }
